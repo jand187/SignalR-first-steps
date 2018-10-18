@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHost.Server", "HomeMade
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHost.ConsoleClient", "HomeMade2\SelfHost.ConsoleClient\SelfHost.ConsoleClient.csproj", "{B18D5A9C-EAFE-426A-B71F-5F3ECF15F3B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication.CoreServer", "HomeMade2\WebApplication.CoreServer\WebApplication.CoreServer.csproj", "{B1EDBC52-1E8D-48B4-8E0A-7BD1C595F8E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B18D5A9C-EAFE-426A-B71F-5F3ECF15F3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B18D5A9C-EAFE-426A-B71F-5F3ECF15F3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B18D5A9C-EAFE-426A-B71F-5F3ECF15F3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1EDBC52-1E8D-48B4-8E0A-7BD1C595F8E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1EDBC52-1E8D-48B4-8E0A-7BD1C595F8E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1EDBC52-1E8D-48B4-8E0A-7BD1C595F8E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1EDBC52-1E8D-48B4-8E0A-7BD1C595F8E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{8B8BEBD1-A182-450D-B4EF-DE2E4820D4F8} = {24205EB4-DFC1-47D8-9ED5-E630B2990A90}
 		{324C1F51-BC25-4F1D-8DC8-6A1411B1DE34} = {043FB47C-D4EB-464C-BD63-267265CD5C92}
 		{B18D5A9C-EAFE-426A-B71F-5F3ECF15F3B1} = {043FB47C-D4EB-464C-BD63-267265CD5C92}
+		{B1EDBC52-1E8D-48B4-8E0A-7BD1C595F8E0} = {043FB47C-D4EB-464C-BD63-267265CD5C92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF1A95B0-2CB6-4891-8E65-497EFF9839D2}
