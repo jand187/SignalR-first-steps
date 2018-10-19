@@ -2,7 +2,7 @@
 
 namespace WebApplication.Server.Controllers
 {
-    public class ProductsController : ApiController
+    public class ProductController : ApiController
     {
         public string[] Get()
         {

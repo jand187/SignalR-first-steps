@@ -13,7 +13,7 @@ namespace SelfHost.ConsoleClient
         static string[] GetFromServer()
         {
             var client = new HttpClient();
-            var response = client.GetAsync("http://localhost:5050/api/product").Result;
+            var response = client.GetAsync("http://localhost:55186/api/product").Result;
             var result = response.Content.ReadAsAsync<string[]>().Result;
             if (response.IsSuccessStatusCode)
             {
@@ -25,7 +25,8 @@ namespace SelfHost.ConsoleClient
 
         static string[] RunSignalR()
         {
-            var url = "http://localhost:5050";
+            //var url = "http://localhost:5050";
+            var url = "http://localhost:55186";
             var connection = new HubConnection(url);
             var proxy = connection.CreateHubProxy("notificationHub");
             try
