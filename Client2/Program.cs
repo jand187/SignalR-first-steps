@@ -7,23 +7,28 @@ namespace Client2
 {
     internal class Program
     {
-        private const string ServerUri = "http://localhost:63840/signalr";
+        private const string ServerUri = "https://signalrwebapiserver-jaxx.azurewebsites.net/signalr";
+        //private const string ServerUri = "http://localhost:63840/signalr";
 
         private static void Main(string[] args)
         {
-            Console.WriteLine("Login: ");
+            Console.WriteLine("Client 2 Login: ");
             var login = Console.ReadLine();
 
             var client = new ConsoleClient(Console.Out, ServerUri, login);
             client.ConnectAsync();
 
             Console.WriteLine("Type message: ");
-            var message = Console.ReadLine();
 
-            client.SendMessage(message);
+            while (true)
+            {
+                var message = Console.ReadLine();
+                if (message == "q")
+                    break;
+                client.SendMessage(message);
+            }
 
-
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 
@@ -63,7 +68,7 @@ namespace Client2
 
         public void SendMessage(string message)
         {
-            this.connection.InvokeCoreAsync("Send", new object[] { this.login, message });
+            this.connection.InvokeCoreAsync("Send", new object[] {this.login, message});
         }
     }
 }
