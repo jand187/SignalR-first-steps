@@ -11,7 +11,7 @@ namespace WebServer.Hubs
             do
             {
                 Console.WriteLine($"Client Id: {Context.ConnectionId} Time called: {DateTime.UtcNow:G}");
-                Clients.All.SendCoreAsync("displayTime", new[] {$"{DateTime.UtcNow:F}"});
+                Clients.All.SendCoreAsync("displayMessage", new[] {$"{DateTime.UtcNow:F}"});
                 Thread.Sleep(TimeSpan.FromSeconds(1));
             }
             while (true);
@@ -24,7 +24,7 @@ namespace WebServer.Hubs
 
         public void Send(string sender, string message)
         {
-            Clients.All.SendCoreAsync("displayTime", new[] { $"{DateTime.UtcNow:F}" });
+            Clients.All.SendCoreAsync("displayMessage", new[] { $"{sender} says:\r\n{message}" });
 
         }
     }

@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR.Client;
 
-namespace Client1
+namespace Client2
 {
     internal class Program
     {
@@ -63,7 +63,7 @@ namespace Client1
 
         public void SendMessage(string message)
         {
-            this.connection.InvokeCoreAsync("Send", new object[] {this.login, message});
+            this.connection.InvokeCoreAsync("Send", new object[] { this.login, message });
         }
     }
 }
