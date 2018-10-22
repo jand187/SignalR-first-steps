@@ -9,7 +9,8 @@ namespace Client1
 {
     class Program
     {
-        private const string ServerUri = "https://localhost:44375/signalr";
+        //private const string ServerUri = "https://localhost:44375/signalr";
+        private const string ServerUri = "http://localhost:63840/signalr";
 
         static void Main(string[] args)
         {
@@ -53,6 +54,14 @@ namespace Client1
                 await Task.Delay(new Random().Next(0, 5) * 1000);
                 await Connection.StartAsync();
             };
+
+            Connection.On<string>(
+                "displayTime",
+                time =>
+                {
+                    Console.Clear();
+                    Console.WriteLine($"From Server: {time}");
+                });
 
             await Connection.StartAsync();
         }
