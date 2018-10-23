@@ -1,13 +1,8 @@
 ﻿using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Net.WebSockets;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
+using CommonStandard;
 using Microsoft.AspNetCore.SignalR.Client;
 using Xamarin.Forms;
 using XamarinClient.Annotations;
@@ -62,43 +57,43 @@ namespace XamarinClient
         }
     }
 
-    internal class ConsoleClient
-    {
-        private readonly HubConnection connection;
-        private readonly string login;
-        private readonly Action<string> writer;
+    //internal class ConsoleClient
+    //{
+    //    private readonly HubConnection connection;
+    //    private readonly string login;
+    //    private readonly Action<string> writer;
 
-        public ConsoleClient(string serverUri, string login, Action<string> writer)
-        {
-            this.login = login;
-            this.writer = writer;
-            this.connection = new HubConnectionBuilder().WithUrl(serverUri).Build();
-        }
+    //    public ConsoleClient(string serverUri, string login, Action<string> writer)
+    //    {
+    //        this.login = login;
+    //        this.writer = writer;
+    //        this.connection = new HubConnectionBuilder().WithUrl(serverUri).Build();
+    //    }
 
 
-        public async void ConnectAsync()
-        {
-            this.connection.Closed += async error =>
-            {
-                await Task.Delay(new Random().Next(0, 5) * 1000);
-                await this.connection.StartAsync();
-            };
+    //    public async void ConnectAsync()
+    //    {
+    //        this.connection.Closed += async error =>
+    //        {
+    //            await Task.Delay(new Random().Next(0, 5) * 1000);
+    //            await this.connection.StartAsync();
+    //        };
 
-            this.connection.On<string>(
-                "displayMessage",
-                message =>
-                {
-                    var formattedMessage = $"From Server: {message}";
-                    this.writer(formattedMessage);
-                });
+    //        this.connection.On<string>(
+    //            "displayMessage",
+    //            message =>
+    //            {
+    //                var formattedMessage = $"From Server: {message}";
+    //                this.writer(formattedMessage);
+    //            });
 
-            await this.connection.StartAsync();
-        }
+    //        await this.connection.StartAsync();
+    //    }
 
-        public void SendMessage(string message)
-        {
-            this.connection.InvokeCoreAsync("Send", new object[] { this.login, message });
-        }
-    }
+    //    public void SendMessage(string message)
+    //    {
+    //        this.connection.InvokeCoreAsync("Send", new object[] {this.login, message});
+    //    }
+    //}
 
 }
