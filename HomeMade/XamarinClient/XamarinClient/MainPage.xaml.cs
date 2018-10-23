@@ -1,42 +1,66 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net.WebSockets;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR.Client;
 using Xamarin.Forms;
+using XamarinClient.Annotations;
 
 namespace XamarinClient
 {
     public partial class MainPage : ContentPage
     {
+        private readonly MainPageViewModel viewModel;
         private const string ServerUri = "https://signalrwebapiserver-jaxx.azurewebsites.net/signalr";
 
         public MainPage()
         {
             InitializeComponent();
+            viewModel = new MainPageViewModel();
+            BindingContext = this.viewModel;
+
         }
 
 
         private void Login_Clicked(object sender, EventArgs e)
         {
-             var writer = new Action<string>(s => MessageTextBox.Text = s);
+             var writer = new Action<string>(s => this.viewModel.SetMessage(s));
 
             var client = new ConsoleClient(ServerUri, "android1", writer);
             client.ConnectAsync();
-            MessageTextBox.HeightRequest = 200;
-            MessageTextBox.Text = "Connected";
 
-            client.SendMessage("test");
+            this.viewModel.SetMessage("Connected ...");
 
-            
+            //MessageTextBox.HeightRequest = 200;
+            //MessageTextBox.Text = "Connected";
         }
 
     }
 
+    public class MainPageViewModel : INotifyPropertyChanged
+    {
+        public string  Message { get; set; }
+
+        public void SetMessage(string message)
+        {
+            this.Message = message;
+            OnPropertyChanged(nameof(Message));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
 
     internal class ConsoleClient
     {

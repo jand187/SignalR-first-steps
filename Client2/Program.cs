@@ -12,9 +12,9 @@ namespace Client2
 
         private static void Main(string[] args)
         {
-            Console.WriteLine("Client 2 Login: ");
-            var login = Console.ReadLine();
-
+            Console.WriteLine("Client 2 Logining in");
+            var login = "win2";
+            
             var client = new ConsoleClient(Console.Out, ServerUri, login);
             client.ConnectAsync();
 

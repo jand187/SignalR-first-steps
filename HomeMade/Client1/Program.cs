@@ -12,8 +12,8 @@ namespace Client1
 
         private static void Main(string[] args)
         {
-            Console.WriteLine("Client 1 Login: ");
-            var login = Console.ReadLine();
+            Console.WriteLine("Client 1 Logining in");
+            var login = "win1";
 
             var client = new ConsoleClient(Console.Out, ServerUri, login);
             client.ConnectAsync();

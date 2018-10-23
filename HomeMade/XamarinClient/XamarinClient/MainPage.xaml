@@ -5,13 +5,13 @@
              xmlns:local="clr-namespace:XamarinClient"
              x:Class="XamarinClient.MainPage">
 
-	<StackLayout>
+    <StackLayout>
 		<!-- Place new controls here -->
 		<Label Text="Welcome to Xamarin.Forms!"
 		       HorizontalOptions="Center"
 		       VerticalOptions="CenterAndExpand" />
 		<Button Text="Login" x:Name="Login" Clicked="Login_Clicked" />
-		<Entry x:Name="MessageTextBox" WidthRequest="50" HeightRequest="50" />
+		<Entry x:Name="MessageTextBox" WidthRequest="50" HeightRequest="200" Text="{Binding Message}" />
 	</StackLayout>
 
 </ContentPage>
